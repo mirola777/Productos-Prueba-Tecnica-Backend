@@ -49,4 +49,10 @@ export class PrismaProductRepository implements ProductRepositoryInterface {
 
     return product !== null;
   }
+
+  async checkIfExistsByName(name: string): Promise<boolean> {
+    const product = await prisma.product.findFirst({ where: { name } });
+
+    return product !== null;
+  }
 }
