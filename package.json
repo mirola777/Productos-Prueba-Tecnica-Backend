@@ -7,7 +7,9 @@
     "build": "npx tsc",
     "start": "dotenv -e .env.prod node dist/index.js",
     "dev": "dotenv -e .env.dev -- nodemon --exitcrash src/index.ts",
-    "prisma-generate": "npx prisma generate --schema src/libs/prisma/database/schema.prisma "
+    "prisma-generate": "npx prisma generate --schema src/libs/prisma/database/schema.prisma",
+    "prisma-push-prod": "dotenv -e .env.prod -- npx prisma db push --schema src/libs/prisma/database/schema.prisma",
+    "prisma-push-dev": "dotenv -e .env.dev -- npx prisma db push --schema src/libs/prisma/database/schema.prisma"
   },
   "repository": {
     "type": "git",
