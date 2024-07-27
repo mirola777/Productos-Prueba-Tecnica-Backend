@@ -1,0 +1,30 @@
+// Run migrations code in the terminal
+// npx prisma migrate dev --name init --schema src/database/prisma/schema.prisma 
+// Reset DB and seed data
+// npx prisma db push --force-reset --schema src/database/prisma/schema.prisma  && npx prisma db seed
+// Generate client
+// npx prisma generate   --schema src/database/prisma/schema.prisma 
+// Borrar DB: DROP SCHEMA public CASCADE;
+// \dt <-- SHOW TABLES
+// Run this command when there are some updates in production
+// railway run npx prisma db  push  --schema src/database/prisma/schema.prisma
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model Product {
+    id          String   @id @default(uuid())
+    description String?
+    image       String?
+    name        String
+    price       Float
+    stock       Int      @default(0)
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+}
