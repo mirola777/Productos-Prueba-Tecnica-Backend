@@ -1,0 +1,15 @@
+export enum ValidationNumberType {
+  GT = "GT",
+  GTE = "GTE",
+  LT = "LT",
+  LTE = "LTE",
+  INT = "INT",
+  POSITIVE = "POSITIVE",
+  NEGATIVE = "NEGATIVE",
+  NONNEGATIVE = "NONNEGATIVE",
+  NONPOSITIVE = "NONPOSITIVE",
+  MULTIPLE_OF = "MULTIPLE_OF",
+  FINITE = "FINITE",
+  OPTIONAL = "OPTIONAL",
+  FLOAT = "FLOAT",
+}
