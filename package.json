@@ -1,0 +1,19 @@
+{
+  "name": "productos-prueba-tecnica-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mirola777/Productos-Prueba-Tecnica-Backend.git"
+  },
+  "author": "Mirola",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mirola777/Productos-Prueba-Tecnica-Backend/issues"
+  },
+  "homepage": "https://github.com/mirola777/Productos-Prueba-Tecnica-Backend#readme"
+}
