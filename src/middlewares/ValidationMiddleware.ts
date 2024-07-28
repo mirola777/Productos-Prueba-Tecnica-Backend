@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from "express";
+import { ValidationError } from "../errors/ValidationError";
 import { ValidationProvider } from "../providers/ValidationProvider";
 import { ValidationSchema } from "../types/validation";
 
@@ -11,12 +12,11 @@ export function ValidationMiddleware(schema: ValidationSchema) {
     if (result.ok) {
       req.body = result.body;
 
-      return next();
+      next();
     } else {
-      return res.status(400).json({
-        status: 400,
-        errors: result.errors,
-      });
+      const error = new ValidationError(result.errors);
+
+      res.status(error.status).json(error.toObject());
     }
   };
 }

@@ -5,8 +5,20 @@ export type ValidationSchema = {
   [key: string]: ValidationNumber | ValidationString;
 };
 
-export type ValidationResult = {
-  ok: boolean;
-  body?: any;
-  errors?: any[];
+export type ValidationErrorItem = {
+  field: string;
+  message: string;
+  code: string;
+  value: any;
+  path?: (string | number)[];
 };
+
+export type ValidationResult =
+  | {
+      ok: false;
+      errors: ValidationErrorItem[];
+    }
+  | {
+      ok: true;
+      body: any;
+    };

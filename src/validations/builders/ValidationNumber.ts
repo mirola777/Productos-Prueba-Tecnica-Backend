@@ -37,42 +37,6 @@ export class ValidationNumber {
     return this;
   }
 
-  positive(): ValidationNumber {
-    this.types.push({ type: ValidationNumberType.POSITIVE });
-
-    return this;
-  }
-
-  negative(): ValidationNumber {
-    this.types.push({ type: ValidationNumberType.NEGATIVE });
-
-    return this;
-  }
-
-  nonnegative(): ValidationNumber {
-    this.types.push({ type: ValidationNumberType.NONNEGATIVE });
-
-    return this;
-  }
-
-  nonpositive(): ValidationNumber {
-    this.types.push({ type: ValidationNumberType.NONPOSITIVE });
-
-    return this;
-  }
-
-  multipleOf(value: number): ValidationNumber {
-    this.types.push({ type: ValidationNumberType.MULTIPLE_OF, value });
-
-    return this;
-  }
-
-  finite(): ValidationNumber {
-    this.types.push({ type: ValidationNumberType.FINITE });
-
-    return this;
-  }
-
   optional(): ValidationNumber {
     this.types.push({ type: ValidationNumberType.OPTIONAL });
 
@@ -81,6 +45,12 @@ export class ValidationNumber {
 
   float(): ValidationNumber {
     this.types.push({ type: ValidationNumberType.FLOAT });
+
+    return this;
+  }
+
+  required(): ValidationNumber {
+    this.types.push({ type: ValidationNumberType.REQUIRED });
 
     return this;
   }

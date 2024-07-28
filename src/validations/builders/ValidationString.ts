@@ -91,20 +91,8 @@ export class ValidationString {
     return this;
   }
 
-  isHex(): ValidationString {
-    this.types.push({ type: ValidationStringType.IS_HEX });
-
-    return this;
-  }
-
-  isAlpha(): ValidationString {
-    this.types.push({ type: ValidationStringType.IS_ALPHA });
-
-    return this;
-  }
-
-  mobilePhone(): ValidationString {
-    this.types.push({ type: ValidationStringType.MOBILE_PHONE });
+  required(): ValidationString {
+    this.types.push({ type: ValidationStringType.REQUIRED });
 
     return this;
   }

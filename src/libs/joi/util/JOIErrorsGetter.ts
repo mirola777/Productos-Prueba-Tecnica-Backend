@@ -1,27 +1,29 @@
-export class ZodErrorsGetter {
-  public static get(result: any, body: any): any[] {
-    if (result.success) return [];
+import Joi from "joi";
+import { ValidationErrorItem } from "../../../types/validation";
 
-    const errors = result.error.issues.map((e: any) => {
-      const error: any = {
+export class JOIErrorsGetter {
+  public static get(
+    result: {
+      error: Joi.ValidationError;
+      warning?: Joi.ValidationError;
+      value: any;
+    },
+    body: any
+  ): ValidationErrorItem[] {
+    if (!result.error) return [];
+
+    const errors = result.error.details.map((e) => {
+      const error: ValidationErrorItem = {
         field: this.getErrorField(e.path),
+        code: e.type,
         message: e.message,
         value: e.path.reduce((obj: any, key: any) => obj[key], body),
+        path: e.path.length > 1 ? e.path : undefined,
       };
 
       if (this.forbiddenErrorFields.includes(error.field)) {
         error.value = undefined;
       }
-
-      if (e.path.length > 1) error.path = e.path;
-
-      if (e.code === "too_small") error.min = e.minimum;
-
-      if (e.code === "too_big") error.max = e.maximum;
-
-      if (e.code === "invalid_enum_value") error.options = e.options;
-
-      if (e.code === "not_multiple_of") error.multipleOf = e.multipleOf;
 
       return error;
     });
@@ -29,13 +31,13 @@ export class ZodErrorsGetter {
     return errors;
   }
 
-  private static getErrorField(path: (string | number)[]): string | number {
+  private static getErrorField(path: (string | number)[]): string {
     if (path.length === 0) return "";
 
     const lastElement = path[path.length - 1];
 
     if (typeof lastElement === "string" || path.length === 1)
-      return lastElement;
+      return String(lastElement);
 
     return this.getErrorField(path.slice(0, path.length - 1));
   }

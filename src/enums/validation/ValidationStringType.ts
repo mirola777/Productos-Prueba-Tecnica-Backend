@@ -13,7 +13,5 @@ export enum ValidationStringType {
   IS_LOWER_CASE = "IS_LOWER_CASE",
   IS_UPPER_CASE = "IS_UPPER_CASE",
   NO_SPACES = "NO_SPACES",
-  IS_HEX = "IS_HEX",
-  IS_ALPHA = "IS_ALPHA",
-  MOBILE_PHONE = "MOBILE_PHONE",
+  REQUIRED = "REQUIRED",
 }

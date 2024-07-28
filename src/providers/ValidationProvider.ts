@@ -1,8 +1,8 @@
-import { ZodValidationService } from "../libs/zod/ZodValidationService";
+import { JOIValidationService } from "../libs/joi/JOIValidationService";
 import { ValidationService } from "../services/ValidationService";
 
 export class ValidationProvider {
   public static inject(): ValidationService {
-    return new ZodValidationService();
+    return new JOIValidationService();
   }
 }
