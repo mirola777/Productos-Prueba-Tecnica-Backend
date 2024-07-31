@@ -32,7 +32,7 @@ Para ejecutar el proyecto, se requieren las siguiente variables de entorno. Exis
 
 El de ambos es el siguiente:
 
-`DATABASE_URL: postgres://postgres:password@localhost:5432/express_postgres`
+`DATABASE_URL: postgres://user:password@localhost:5432/database_name`
 
 `PORT: 3000`
 
