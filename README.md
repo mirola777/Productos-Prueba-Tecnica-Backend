@@ -16,7 +16,7 @@ Contar con NodeJS y con PostgreSQL instalado en el equipo
 
 
 
-## Installation
+## Instalación
 
 Instalar el proyecto y sus dependencias
 
